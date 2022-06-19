@@ -1,0 +1,27 @@
+version: '2'
+
+services:
+  disk-sharing:
+    image: 'disk-sharing-pg:latest'
+    build:
+      context: .
+    container_name: disk-sharing
+    ports:
+      - '8080:8080'
+    depends_on:
+      - postgres
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/sharing
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=1234
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=create
+  postgres:
+    image: 'postgres'
+    container_name: postgres
+    ports:
+      - "5432:5432"
+    restart: always
+    environment:
+      - POSTGRES_DB=sharing
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=1234

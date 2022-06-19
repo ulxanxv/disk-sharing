@@ -1,0 +1,187 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+  - url: 'http://localhost:8080'
+    description: Generated server url
+paths:
+  /sharing/disks/take:
+    put:
+      tags:
+        - sharing-controller
+      operationId: takeDisk
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TakeDiskRequestMo'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+  /sharing/disks/return:
+    put:
+      tags:
+        - sharing-controller
+      operationId: returnDisk
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReturnDiskRequestMo'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+  /auth/login:
+    post:
+      tags:
+        - login-controller
+      operationId: doLogin
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequestMo'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/LoginResponseMo'
+  /sharing/disks:
+    get:
+      tags:
+        - sharing-controller
+      operationId: getDisks
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/GetDisksResponseMo'
+  /sharing/disks/taken:
+    get:
+      tags:
+        - sharing-controller
+      operationId: getTakenDisks
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/GetTakenDisksResponseMo'
+  /sharing/disks/free:
+    get:
+      tags:
+        - sharing-controller
+      operationId: getFreeDisks
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/GetFreeDisksResponseMo'
+  /sharing/disks/debtors:
+    get:
+      tags:
+        - sharing-controller
+      operationId: getDebtors
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/GetDebtorsResponseMo'
+components:
+  schemas:
+    TakeDiskRequestMo:
+      type: object
+      properties:
+        diskId:
+          type: integer
+          format: int64
+    ReturnDiskRequestMo:
+      type: object
+      properties:
+        diskId:
+          type: integer
+          format: int64
+    LoginRequestMo:
+      type: object
+      properties:
+        login:
+          type: string
+        password:
+          type: string
+    LoginResponseMo:
+      type: object
+      properties:
+        token:
+          type: string
+    DiskMo:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        description:
+          type: string
+        releaseDate:
+          type: string
+          format: date-time
+    GetDisksResponseMo:
+      type: object
+      properties:
+        disks:
+          type: array
+          items:
+            $ref: '#/components/schemas/DiskMo'
+    GetTakenDisksResponseMo:
+      type: object
+      properties:
+        disks:
+          type: array
+          items:
+            $ref: '#/components/schemas/DiskMo'
+    GetFreeDisksResponseMo:
+      type: object
+      properties:
+        disks:
+          type: array
+          items:
+            $ref: '#/components/schemas/DiskMo'
+    GetDebtorsResponseMo:
+      type: object
+      properties:
+        debtors:
+          type: array
+          items:
+            $ref: '#/components/schemas/TakenItemMo'
+    TakenItemMo:
+      type: object
+      properties:
+        debtor:
+          $ref: '#/components/schemas/UserMo'
+        disk:
+          $ref: '#/components/schemas/DiskMo'
+    UserMo:
+      type: object
+      properties:
+        login:
+          type: string
