@@ -22,7 +22,7 @@ mvn spring-boot:run
 - Можете воспользоваться **swagger-api**, он доступен по адресу `http://<host>:<port>/swagger-ui.html` после запуска
 - Так же есть файл [спецификации](src/main/resources/openapi/disk-sharing.yaml)
 
-## API
+### API
 - Авторизация - /auth/login
 
 Пример запроса:
