@@ -1,6 +1,7 @@
 DELETE
 FROM usr;
 
+-- Pass is 1234
 INSERT INTO usr (login, password)
 VALUES ('Ulxanxv', '$2a$12$Tcb2gJaAYXak6ZUEx8EfjOm9VC9KFppV2em5Yp3H1cmsv760cnDMy'),
        ('Ulxanxv2', '$2a$12$Tcb2gJaAYXak6ZUEx8EfjOm9VC9KFppV2em5Yp3H1cmsv760cnDMy'),

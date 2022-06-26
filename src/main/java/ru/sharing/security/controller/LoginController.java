@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import ru.sharing.mo.error.ApiError;
 import ru.sharing.security.exception.LoginException;
 import ru.sharing.security.mo.LoginRequestMo;
 import ru.sharing.security.mo.LoginResponseMo;
@@ -25,7 +26,23 @@ public class LoginController {
 	@Operation(summary = "Авторизация")
 	@ApiResponses(value = {
 			@ApiResponse(responseCode = "200", description = "Успешная авторизация",
-					content = {@Content(mediaType = "application/json",schema = @Schema(implementation = LoginResponseMo.class))}),
+					content = {
+							@Content(
+									mediaType = "application/json",
+									schema = @Schema(implementation = LoginResponseMo.class))
+					}),
+			@ApiResponse(responseCode = "400", description = "Неверный пароль",
+					content = {
+							@Content(
+									mediaType = "application/json",
+									schema = @Schema(implementation = ApiError.class))
+					}),
+			@ApiResponse(responseCode = "404", description = "Неверный пользователь",
+					content = {
+							@Content(
+									mediaType = "application/json",
+									schema = @Schema(implementation = ApiError.class))
+					}),
 	})
 	@PostMapping("/login")
 	public LoginResponseMo doLogin(@RequestBody LoginRequestMo requestMo) throws LoginException {
