@@ -46,7 +46,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJiMDhmO
 - **Посмотреть взятые диски /sharing/disks/taken**
 - **Посмотреть свободные диски - /sharing/disks/free**
 - **Посмотреть список должников - /sharing/disks/debtors**
-- **Взять диск - /sharing/disks/take
+- **Взять диск - /sharing/disks/take**
 
 Пример запроса:
 ```json
