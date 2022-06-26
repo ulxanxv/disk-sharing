@@ -47,7 +47,8 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJiMDhmO
 - **Посмотреть свободные диски - /sharing/disks/free**
 - **Посмотреть список должников - /sharing/disks/debtors**
 - **Взять диск - /sharing/disks/take**
-
+<details open>
+<summary>Пример</summary>
 Пример запроса:
 ```json
 {
@@ -58,6 +59,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJiMDhmO
 ```json
 {} // 200 status
 ```
+</details>
 - **Отдать диск - /sharing/disks/return**
 
 Пример запроса:
