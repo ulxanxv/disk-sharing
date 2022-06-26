@@ -59,6 +59,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJiMDhmO
 {} // 200 status
 ```
 - Отдать диск - /sharing/disks/return
+
 Пример запроса:
 ```json
 {
