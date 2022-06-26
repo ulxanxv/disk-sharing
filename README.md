@@ -23,7 +23,7 @@ mvn spring-boot:run
 - Так же есть файл [спецификации](src/main/resources/openapi/disk-sharing.yaml)
 
 ### API
-- Авторизация - /auth/login
+- **Авторизация - /auth/login**
 
 Пример запроса:
 ```json
@@ -42,11 +42,11 @@ mvn spring-boot:run
 ```
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJiMDhmODZhZi0zNWRhLTQ4ZjItOGZhYi1jZWYzOTA0NjYwYmQifQ.-xN_h82PHVTCMA9vdoHrcZxH-x5mb11y1537t3rGzcM"
 ```
-- Посмотреть свои диска - /sharing/disks
-- Посмотреть взятые диски /sharing/disks/taken
-- Посмотреть свободные диски - /sharing/disks/free
-- Посмотреть список должников - /sharing/disks/debtors
-- Взять диск - /sharing/disks/take
+- **Посмотреть свои диска - /sharing/disks**
+- **Посмотреть взятые диски /sharing/disks/taken**
+- **Посмотреть свободные диски - /sharing/disks/free**
+- **Посмотреть список должников - /sharing/disks/debtors**
+- **Взять диск - /sharing/disks/take
 
 Пример запроса:
 ```json
@@ -58,7 +58,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJiMDhmO
 ```json
 {} // 200 status
 ```
-- Отдать диск - /sharing/disks/return
+- **Отдать диск - /sharing/disks/return**
 
 Пример запроса:
 ```json
